@@ -493,12 +493,12 @@ def create_key_bindings(history, python_input, history_mapping):
     @handle('c-g', filter=main_buffer_focussed)
     def _(event):
         " Cancel and go back. "
-        event.app.set_result(None)
+        event.app.exit(result=None)
 
     @handle('enter', filter=main_buffer_focussed)
     def _(event):
         " Accept input. "
-        event.app.set_result(history.default_buffer.text)
+        event.app.exit(result=history.default_buffer.text)
 
     enable_system_bindings = Condition(lambda: python_input.enable_system_bindings)
 
@@ -532,7 +532,7 @@ class History(object):
             document=document,
             on_cursor_position_changed=self._history_buffer_pos_changed,
             accept_handler=(
-                lambda buff: get_app().set_result(self.default_buffer.text)),
+                lambda buff: get_app().exit(result=self.default_buffer.text)),
             read_only=True)
 
         self.default_buffer = Buffer(

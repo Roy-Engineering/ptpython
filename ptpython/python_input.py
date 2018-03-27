@@ -249,7 +249,7 @@ class PythonInput(object):
 
     def _accept_handler(self, buff):
         app = get_app()
-        app.set_result(buff.text)
+        app.exit(result=buff.text)
         app.pre_run_callables.append(buff.reset)
 
     @property
