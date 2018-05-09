@@ -16,7 +16,6 @@ from prompt_toolkit.layout.margins import PromptMargin
 from prompt_toolkit.layout.menus import CompletionsMenu, MultiColumnCompletionsMenu
 from prompt_toolkit.layout.processors import ConditionalProcessor, AppendAutoSuggestion, HighlightIncrementalSearchProcessor, HighlightSelectionProcessor, HighlightMatchingBracketProcessor, Processor, Transformation
 from prompt_toolkit.lexers import SimpleLexer
-from prompt_toolkit.reactive import Integer
 from prompt_toolkit.selection import SelectionType
 from prompt_toolkit.widgets.toolbars import CompletionsToolbar, ArgToolbar, SearchToolbar, ValidationToolbar, SystemToolbar
 
@@ -542,7 +541,7 @@ def create_layout(python_input,
                               ycursor=True,
                               content=ConditionalContainer(
                                   content=CompletionsMenu(
-                                      scroll_offset=Integer.from_callable(
+                                      scroll_offset=(
                                           lambda: python_input.completion_menu_scroll_offset),
                                       max_height=12),
                                   filter=show_completions_menu(python_input))),
