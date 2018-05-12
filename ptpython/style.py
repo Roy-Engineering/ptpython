@@ -110,6 +110,7 @@ default_ui_style = {
     'status-toolbar.key':                     'bg:#000000 #888888',
     'status-toolbar.pastemodeon':             'bg:#aa4444 #ffffff',
     'status-toolbar.pythonversion':           'bg:#222222 #ffffff bold',
+    'record':                                 'bg:#884444 white',
 
     # The options sidebar.
     'sidebar':                                'bg:#bbbbbb #000000',

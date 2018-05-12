@@ -362,6 +362,11 @@ def get_inputmode_fragments(python_input):
 
     # InputMode
     if python_input.vi_mode:
+        if app.vi_state.recording_register:
+            append((token, ' '))
+            append((token + ' class:record', 'RECORD'))
+            append((token, ' - '))
+
         if bool(app.current_buffer.selection_state):
             if app.current_buffer.selection_state.type == SelectionType.LINES:
                 append((input_mode_t, 'Vi (VISUAL LINE)', toggle_vi_mode))

@@ -121,8 +121,7 @@ class HistoryLayout(object):
             body=Window(
                 content=self.help_buffer_control,
                 right_margins=[ScrollbarMargin(display_arrows=True)],
-                scroll_offsets=ScrollOffsets(top=2, bottom=2),
-                transparent=False))
+                scroll_offsets=ScrollOffsets(top=2, bottom=2)))
 
         self.default_buffer_control = BufferControl(
             buffer=history.default_buffer,
