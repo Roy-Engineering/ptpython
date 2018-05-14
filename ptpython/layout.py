@@ -362,9 +362,10 @@ def get_inputmode_fragments(python_input):
 
     # InputMode
     if python_input.vi_mode:
-        if app.vi_state.recording_register:
+        recording_register = app.vi_state.recording_register
+        if recording_register:
             append((token, ' '))
-            append((token + ' class:record', 'RECORD'))
+            append((token + ' class:record', 'RECORD({})'.format(recording_register)))
             append((token, ' - '))
 
         if bool(app.current_buffer.selection_state):
