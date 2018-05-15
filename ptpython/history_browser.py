@@ -329,15 +329,16 @@ class HistoryMapping(object):
         self.selected_lines = set()
 
         # Process history.
+        history_strings = python_history.get_strings()
         history_lines = []
 
-        for entry_nr, entry in list(enumerate(python_history))[-HISTORY_COUNT:]:
+        for entry_nr, entry in list(enumerate(history_strings))[-HISTORY_COUNT:]:
             self.lines_starting_new_entries.add(len(history_lines))
 
             for line in entry.splitlines():
                 history_lines.append(line)
 
-        if len(python_history) > HISTORY_COUNT:
+        if len(history_strings) > HISTORY_COUNT:
             history_lines[0] = '# *** History has been truncated to %s lines ***' % HISTORY_COUNT
 
         self.history_lines = history_lines

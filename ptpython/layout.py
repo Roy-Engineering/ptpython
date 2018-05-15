@@ -387,6 +387,11 @@ def get_inputmode_fragments(python_input):
             append((input_mode_t, 'Vi (REPLACE)', toggle_vi_mode))
             append((token, ' '))
     else:
+        if app.emacs_state.is_recording:
+            append((token, ' '))
+            append((token + ' class:record', 'RECORD'))
+            append((token, ' - '))
+
         append((input_mode_t, 'Emacs', toggle_vi_mode))
         append((token, ' '))
 
