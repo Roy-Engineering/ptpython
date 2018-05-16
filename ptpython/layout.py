@@ -277,11 +277,14 @@ class PythonPromptMargin(PromptMargin):
         def get_prompt():
             return get_prompt_style().in_tokens()
 
-        def get_continuation_prompt(width):
-            return get_prompt_style().in2_tokens(width)
+        def get_continuation(width, line_number, is_soft_wrap):
+            if python_input.show_line_numbers and not is_soft_wrap:
+                text = ('%i ' % (line_number + 1)).rjust(width)
+                return [('class:line-number', text)]
+            else:
+                return get_prompt_style().in2_tokens(width)
 
-        super(PythonPromptMargin, self).__init__(get_prompt, get_continuation_prompt,
-                show_numbers=Condition(lambda: python_input.show_line_numbers))
+        super(PythonPromptMargin, self).__init__(get_prompt, get_continuation)
 
 
 def status_bar(python_input):
