@@ -14,7 +14,7 @@ from prompt_toolkit.enums import DEFAULT_BUFFER
 from prompt_toolkit.filters import Condition, has_focus
 from prompt_toolkit.formatted_text.utils import fragment_list_to_text
 from prompt_toolkit.key_binding import KeyBindings
-from prompt_toolkit.layout.containers import HSplit, VSplit, Window, FloatContainer, Float, ConditionalContainer, Container, ScrollOffsets, Align
+from prompt_toolkit.layout.containers import HSplit, VSplit, Window, FloatContainer, Float, ConditionalContainer, Container, ScrollOffsets, WindowAlign
 from prompt_toolkit.layout.controls import BufferControl, FormattedTextControl
 from prompt_toolkit.layout.dimension import Dimension as D
 from prompt_toolkit.layout.layout import Layout
@@ -144,7 +144,7 @@ class HistoryLayout(object):
             #  Top title bar.
             Window(
                 content=FormattedTextControl(_get_top_toolbar_fragments),
-                align=Align.CENTER,
+                align=WindowAlign.CENTER,
                 style='class:status-toolbar'),
             FloatContainer(
                 content=VSplit([
