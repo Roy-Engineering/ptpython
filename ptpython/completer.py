@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
-from prompt_toolkit.completion import Completer, Completion
-from prompt_toolkit.contrib.completers import PathCompleter
+from prompt_toolkit.completion import Completer, Completion, PathCompleter
 from prompt_toolkit.contrib.regular_languages.compiler import compile as compile_grammar
 from prompt_toolkit.contrib.regular_languages.completion import GrammarCompleter
 

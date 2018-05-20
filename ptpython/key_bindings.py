@@ -157,7 +157,7 @@ def load_python_bindings(python_input):
     @handle('c-c', filter=has_focus(python_input.default_buffer))
     def _(event):
         " Abort when Control-C has been pressed. "
-        event.app.exit(exception=KeyboardInterrupt, style='class:abort')
+        event.app.exit(exception=KeyboardInterrupt, style='class:aborting')
 
     return bindings
 
@@ -231,7 +231,7 @@ def load_confirm_exit_bindings(python_input):
         """
         Really quit.
         """
-        event.app.exit(exception=EOFError)
+        event.app.exit(exception=EOFError, style='class:exiting')
 
     @handle(Keys.Any, filter=confirmation_visible)
     def _(event):
